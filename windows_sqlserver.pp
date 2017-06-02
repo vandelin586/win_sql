@@ -17,9 +17,7 @@ Optional[String] $sec_mode,
   String $dir_tmp,
   String $postinstall,
   String $sql_ver,
-  ){
-
- 
+  ){ 
 
 # Ensure .NET3.5 is installled
   windowsfeature { 'NET-Framework-Core':
@@ -33,8 +31,7 @@ Optional[String] $sec_mode,
       provider => powershell,
       timeout  => 7200,
       creates  => "C:\\Program Files (x86)\\Microsoft SQL Server\\110\\COM\\instapi110.dll",
-    }
- 
+    } 
 
     if ($app_adm_acct != undef) {
       user { $app_adm_acct:
@@ -43,9 +40,7 @@ Optional[String] $sec_mode,
         groups   => ['Administrators'],
       }
 
-    }
-
- 
+    } 
 
     # Install SQL Server
 
